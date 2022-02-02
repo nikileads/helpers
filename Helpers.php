@@ -33,7 +33,7 @@ class SlugHelper
         while((strlen($translit)>1) and (substr($translit,-1)=='-')){
             $translit = substr($translit, 0, -1);
         }
-        
+        if(strlen($translit)<=1){throw new Exception('Too little'); }
         $translit = preg_replace('/[\-]{2,}/', '-', $translit);
         
         return $translit;
